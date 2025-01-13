@@ -26,8 +26,9 @@ app.use(
 
 // Routes
 const productsRouter = require("./src/routes/products.route");
+const registerRouter = require("./src/routes/register.router");
 app.use("/products", productsRouter);
-
+app.use("/register", registerRouter);
 // Handle unknown routes
 app.use((req, res, next) => {
     res.status(404).json({ message: "Route not found" });
