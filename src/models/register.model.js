@@ -5,6 +5,7 @@ const SellerSchema = new mongoose.Schema({
     name: String,
     email: { type: String, unique: true, required: true },
     password: { type: String, required: true },
+    role: { type: String, required: true },
     storeName: String,
     phoneNumber: String,
     address: String,

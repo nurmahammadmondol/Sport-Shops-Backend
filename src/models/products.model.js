@@ -4,6 +4,7 @@ const productshema = new mongoose.Schema({
     CategoryName: { type: String, },
     ItemName: { type: String, },
     Price: { type: Number, },
+    quntity: { type: Number, },
     Customization: { type: Boolean, default: false },
     ProcessingTime: { type: String, required: true },
     StockStatus: { type: String, enum: ['In Stock', 'Out of Stock'], default: 'In Stock' },

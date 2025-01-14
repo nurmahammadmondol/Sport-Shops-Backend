@@ -1,4 +1,4 @@
-const Seller = require("../../models/Seller");
+const Seller = require("../../models/register.model");
 
 const getAllSellers = async (req, res) => {
     try {

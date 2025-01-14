@@ -9,7 +9,7 @@ const updateRegisterController = require("../../src/controllers/resgister/edit.r
 const deleteRegisterController = require("../../src/controllers/resgister/delete.resgister.controller");
 
 
-const approveRegisterController = require("../../src/controllers/resgister/approve.resgister.controller");
+const approveRegisterController = require("../../src/controllers/resgister/approve.register.controller");
 
 const loginController = require("../../src/controllers/resgister/login.controller");
 

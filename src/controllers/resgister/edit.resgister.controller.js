@@ -1,4 +1,4 @@
-const Seller = require("../../models/Seller");
+const Seller = require("../../models/register.model");
 
 const editSeller = async (req, res) => {
     const { id } = req.params;
