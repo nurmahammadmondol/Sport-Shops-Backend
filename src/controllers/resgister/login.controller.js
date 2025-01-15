@@ -1,5 +1,5 @@
 const Seller = require("../../models/register.model");
-const bcrypt = require("bcrypt");
+
 
 const loginSeller = async (req, res) => {
     const { email, password } = req.body;
@@ -15,11 +15,17 @@ const loginSeller = async (req, res) => {
         }
 
         // Check if the seller's account is approved
-        if (seller.isVerified !== true) {
+        if (seller.isOwnerVerified !== true) {
             return res.status(403).json({
                 statusCode: 403,
-                message: "Seller account is not approved",
+                message: "Seller's ownership is not verified",
             });
+        }
+
+        // If the account is owner verified, update isVerified to true
+        if (seller.isOwnerVerified) {
+            seller.isVerified = true;
+            await seller.save(); // Save the updated status
         }
 
         // Check if password matches
@@ -34,27 +40,27 @@ const loginSeller = async (req, res) => {
             });
         }
 
-            // Respond with success including the role
-            res.status(200).json({
-                statusCode: 200,
-                message: "Login successful",
-                seller: {
-                    id: seller._id,
-                    name: seller.name,
-                    email: seller.email,
-                    role: seller.role, // Add the role here
-                    storeName: seller.storeName,
-                    phoneNumber: seller.phoneNumber,
-                    isVerified: seller.isVerified,
-                },
-            });
-        } catch (error) {
-            res.status(500).json({
-                statusCode: 500,
-                message: "Internal server error",
-                error: error.message,
-            });
-        }
-    };
+        // Respond with success including the role
+        res.status(200).json({
+            statusCode: 200,
+            message: "Login successful",
+            seller: {
+                id: seller._id,
+                name: seller.name,
+                email: seller.email,
+                role: seller.role, // Add the role here
+                storeName: seller.storeName,
+                phoneNumber: seller.phoneNumber,
+                isVerified: seller.isVerified,
+            },
+        });
+    } catch (error) {
+        res.status(500).json({
+            statusCode: 500,
+            message: "Internal server error",
+            error: error.message,
+        });
+    }
+};
 
-    module.exports = loginSeller;
+module.exports = loginSeller;

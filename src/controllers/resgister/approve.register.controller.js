@@ -6,7 +6,7 @@ const approveSeller = async (req, res) => {
         // Attempt to find and update the seller's verification status
         const approvedSeller = await Seller.findByIdAndUpdate(
             id,
-            { isVerified: true },
+            { isOwnerVerified: true },
             { new: true }  // To return the updated seller
         );
 

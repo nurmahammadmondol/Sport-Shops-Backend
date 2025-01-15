@@ -11,6 +11,7 @@ const getcartPtoductsController = require("../../src/controllers/products/getcar
 const ordersPtoductsController = require("../../src/controllers/products/order.products.controller");
 const getordersPtoductsController = require("../../src/controllers/products/getAllorder.products.controller");
 const deletecartPtoductsController = require("../../src/controllers/products/deletecart.products.controller");
+
 const productsRouter = express.Router();
 // Sample route to get all items
 

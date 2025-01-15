@@ -11,6 +11,7 @@ const SellerSchema = new mongoose.Schema({
     address: String,
     profile: String,
     isVerified: { type: Boolean, default: false },
+    isOwnerVerified: { type: Boolean, default: false },
     registrationDate: { type: Date, default: Date.now },
 });
 

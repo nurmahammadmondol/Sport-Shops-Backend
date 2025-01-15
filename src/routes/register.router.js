@@ -12,7 +12,7 @@ const deleteRegisterController = require("../../src/controllers/resgister/delete
 const approveRegisterController = require("../../src/controllers/resgister/approve.register.controller");
 
 const loginController = require("../../src/controllers/resgister/login.controller");
-
+const logoutController = require("../../src/controllers/resgister/logout.controller");
 const registerRouter = express.Router();
 // Sample route to get all items
 
@@ -23,4 +23,5 @@ registerRouter.route("/:id").patch(updateRegisterController);
 registerRouter.route("/:id").delete(deleteRegisterController);
 registerRouter.route("/approve/:id").patch(approveRegisterController)
 registerRouter.route("/auth").post(loginController)
+registerRouter.route("/logout/:email").patch(logoutController)
 module.exports = registerRouter;
