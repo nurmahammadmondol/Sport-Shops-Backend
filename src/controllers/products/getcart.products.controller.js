@@ -1,11 +1,11 @@
 const Cart = require('../../models/cart.model');
 
 const getCart = async (req, res) => {
-    const { email } = req.query; // Assumes email is passed as a query parameter
+    const { email } = req.body; // Assumes email is passed as a query parameter
 
     try {
         // Find the cart for the given email
-        const cart = await Cart.findOne({ email }).populate('productIds'); // Populating product details if needed
+        const cart = await Cart.findOne(email); // Correct query syntax for MongoDB
 
         if (!cart) {
             return res.status(404).json({

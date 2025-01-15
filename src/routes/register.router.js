@@ -22,6 +22,6 @@ registerRouter.route("/:id").get(getSingleRegisterController);
 registerRouter.route("/:id").patch(updateRegisterController);
 registerRouter.route("/:id").delete(deleteRegisterController);
 registerRouter.route("/approve/:id").patch(approveRegisterController)
-registerRouter.route("/auth").post(loginController)
+registerRouter.route("/auth/:email").get(loginController)
 registerRouter.route("/logout/:email").patch(logoutController)
 module.exports = registerRouter;

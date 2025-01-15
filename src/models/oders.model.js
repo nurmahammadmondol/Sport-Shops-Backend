@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
     email: { type: String, required: true },  // Corrected email field type to String
-    products: [
+    productIds: [
         {
-            productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Products', required: true },
-            quantity: { type: Number },  // Optionally make quantity required
-        }
+            type: mongoose.Schema.Types.ObjectId, // Store references to Product IDs
+            ref: 'Products', // Reference the Products model
+        },
     ],
     totalAmount: { type: Number, required: true },
     orderDate: { type: Date, default: Date.now },

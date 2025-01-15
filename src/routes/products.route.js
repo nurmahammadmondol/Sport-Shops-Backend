@@ -24,5 +24,5 @@ productsRouter.route("/addtocart").post(addtocartPtoductsController);
 productsRouter.route("/cart/:email").get(getcartPtoductsController);
 productsRouter.route("/cart/:email").delete(deletecartPtoductsController);
 productsRouter.route("/order").post(ordersPtoductsController);
-productsRouter.route("/order").get(getordersPtoductsController);
+productsRouter.route("/order/:eamil").get(getordersPtoductsController);
 module.exports = productsRouter;

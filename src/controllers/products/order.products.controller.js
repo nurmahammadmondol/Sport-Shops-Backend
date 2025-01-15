@@ -3,15 +3,15 @@ const Orders = require('../../models/oders.model'); // Adjust the path as necess
 // Create a new order
 const createOrder = async (req, res) => {
     try {
-        const { email, products, totalAmount } = req.body;
+        const { email, productIds, totalAmount } = req.body;
 
-        if (!email || !products || !totalAmount) {
+        if (!email || !productIds || !totalAmount) {
             return res.status(400).json({ message: 'All fields are required' });
         }
 
         const newOrder = new Orders({
             email,
-            products,
+            productIds,
             totalAmount,
         });
 

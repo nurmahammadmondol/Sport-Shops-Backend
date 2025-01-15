@@ -1,8 +1,7 @@
 const Seller = require("../../models/register.model");
 
-
-const loginSeller = async (req, res) => {
-    const { email, password } = req.body;
+const loginController = async (req, res) => {
+    const { email } = req.body; // Only use email
 
     try {
         // Check if seller exists
@@ -28,19 +27,7 @@ const loginSeller = async (req, res) => {
             await seller.save(); // Save the updated status
         }
 
-        // Check if password matches
-        const isPasswordValid = password === seller.password;
-
-
-        console.log(isPasswordValid)
-        if (!isPasswordValid) {
-            return res.status(401).json({
-                statusCode: 401,
-                message: "Invalid email or password",
-            });
-        }
-
-        // Respond with success including the role
+        // Respond with success including the role and other details
         res.status(200).json({
             statusCode: 200,
             message: "Login successful",
@@ -63,4 +50,4 @@ const loginSeller = async (req, res) => {
     }
 };
 
-module.exports = loginSeller;
+module.exports = loginController;
