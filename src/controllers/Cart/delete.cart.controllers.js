@@ -1,5 +1,4 @@
-const Cart = require('../../models/cart.model');
-
+const Cart = require('../../models/addtocart.model');
 const deleteCart = async (req, res) => {
     const { email } = req.body;
 

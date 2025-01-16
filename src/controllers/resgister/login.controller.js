@@ -5,7 +5,7 @@ const loginController = async (req, res) => {
 
     try {
         // Check if seller exists
-        const seller = await Seller.findOne({ email });
+        const seller = await Seller.findOne(email);
         if (!seller) {
             return res.status(404).json({
                 statusCode: 404,

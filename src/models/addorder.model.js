@@ -8,7 +8,7 @@ const orderSchema = new mongoose.Schema({
             ref: 'Products', // Reference the Products model
         },
     ],
-    totalAmount: { type: Number, required: true },
+
     orderDate: { type: Date, default: Date.now },
 });
 

@@ -1,11 +1,11 @@
-const Cart = require('../../models/cart.model');
+const Cart = require('../../models/addtocart.model');
 
 const getCart = async (req, res) => {
-    const { email } = req.body; // Assumes email is passed as a query parameter
+    const { email } = req.body; // Assumes email is passed in the request body
 
     try {
         // Find the cart for the given email
-        const cart = await Cart.findOne(email); // Correct query syntax for MongoDB
+        const cart = await Cart.find(email); // Corrected query syntax
 
         if (!cart) {
             return res.status(404).json({
@@ -27,7 +27,7 @@ const getCart = async (req, res) => {
         res.status(500).json({
             status: 500,
             message: 'Error retrieving cart',
-            error: error.message, // Include error message for debugging
+            error: error.message,
         });
     }
 };
